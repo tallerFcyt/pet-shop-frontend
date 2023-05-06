@@ -82,10 +82,10 @@ const Nav = () => {
             ) : (
               <></>
             )}
-            {!user ? (
-              <RenderSignIn />
+            {user !== null ? (
+              <RenderAvatar handleValue={handleValue} />
             ) : (
-              <RenderAvatar handleValue={handleValue} user={user}/>
+              <RenderSignIn />
             )}
           </Toolbar>
         </Container>
