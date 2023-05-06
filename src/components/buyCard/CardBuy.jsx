@@ -10,7 +10,7 @@ const CardBuy = ({ buy }) => {
 
     buy.products ? ( buy.products.map((b) => {
       return(
-        <>
+        <div key={b.product_id}>
           <Grid container sx={{backgroundColor:'#fff'}}>
             <Grid item sx={{cursor: 'pointer'}} onClick={() => {navigate(`/product/${b.product_id}`)}}>
               <CardMedia
@@ -27,7 +27,7 @@ const CardBuy = ({ buy }) => {
             </Grid>
           </Grid>
           <Divider></Divider>
-        </>
+        </div>
       )
     })) : (<>loading..</>)
   )

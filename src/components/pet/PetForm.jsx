@@ -20,6 +20,7 @@ import { useAuthContext } from "../../context/AuthContext";
 import { useEffect, useState } from "react";
 import CREATE_PET from "../../service/graphql/mutations/createPet";
 import { ContentButtonStyle } from "./styles";
+import { API_URL } from "../../utils/config";
 
 const PetForm = ({ openPet, handleClosePet, service_id, title, price, description, image_url }) => {
   //Obtenemos el user del authContext
@@ -115,7 +116,7 @@ const PetForm = ({ openPet, handleClosePet, service_id, title, price, descriptio
         items,
       };
 
-      const result = await fetch("http://localhost:4000/payment/service", {
+      const result = await fetch(`${API_URL}/payment/service`, {
         method: "POST",
         body: JSON.stringify(data),
         headers: { "Content-Type": "application/json" },

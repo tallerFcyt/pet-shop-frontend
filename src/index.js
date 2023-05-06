@@ -4,10 +4,11 @@ import './index.css';
 import App from './App';
 import {ApolloClient, ApolloProvider, HttpLink, InMemoryCache} from '@apollo/client'
 import { AuthProvider } from './context/AuthContext';
+import { API_URL } from './utils/config';
 
 const client = new ApolloClient({
   link: new HttpLink({
-    uri: 'http://localhost:4000/graphql',
+    uri: `${API_URL}/graphql`,
   }),
   cache: new InMemoryCache(),
 })

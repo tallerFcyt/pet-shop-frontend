@@ -120,18 +120,17 @@ const Buys = () => {
           ) : buys ? (
             buys.map((buy) => {
               const date = new Date(buy.buy.createdAt);
-              const options = {
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-              };
-              const dateString = date.toLocaleDateString("es-ES", options);
+              const dateString = date.toISOString().slice(0, 10);
               return (
-                <Grid item sx={{ width: "100%" }}>
+                <Grid item sx={{ width: "100%" }} key={buy.buy.id}>
                   <Card sx={{ width: "100%", backgroundColor: "#eaeaea" }}>
-                    <Typography sx={{ color: "#555", padding: "10px" }}>
-                      {dateString}
-                    </Typography>
+                    <Box sx={{display:'flex', padding: "10px", alignItems:'center'}}>
+                      <Typography fontWeight="bold">Fecha de compra:</Typography>
+                      <Typography sx={{ color: "#555", ml:'5px' }}>
+                        {dateString}
+                      </Typography>
+
+                    </Box>
                     <Divider></Divider>
                     <CardBuy buy={buy} />
                     <Box

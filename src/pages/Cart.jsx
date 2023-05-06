@@ -6,6 +6,7 @@ import CartCard from "../components/cart/CartCard";
 import AuthContext from "../context/AuthContext";
 import DELETE_ALL_PRODUCT_CART from "../service/graphql/mutations/deleteAllProductCart";
 import GET_ALL_PRODUCT_CART from "../service/graphql/querys/getAllProductCart";
+import { API_URL } from "../utils/config";
 
 
 const Cart = () => {
@@ -95,7 +96,7 @@ const Cart = () => {
     }
     
 
-    const result = await fetch("http://localhost:4000/payment",{
+    const result = await fetch(`${API_URL}/payment`,{
       method: 'POST',
       body: JSON.stringify(data),
       headers: { "Content-Type": "application/json" },

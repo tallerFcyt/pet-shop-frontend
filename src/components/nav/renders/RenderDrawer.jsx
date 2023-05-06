@@ -8,6 +8,7 @@ import LocalMallIcon from '@mui/icons-material/LocalMall';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import MedicalServicesIcon from '@mui/icons-material/MedicalServices';
+import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 
 const RenderDrawer = ({ user }) => {
 
@@ -68,6 +69,16 @@ const RenderDrawer = ({ user }) => {
               <ListItemText>Servicios</ListItemText>
             </ListItemIcon>
           </ListItemButton>
+          {
+            user && userData && userData.isAdmin ? 
+            (<ListItemButton onClick={() => navigate("/sales")}>
+              <ListItemIcon>
+                <ShoppingBagIcon/>
+                <ListItemText>Ventas</ListItemText>
+              </ListItemIcon>
+            </ListItemButton>
+            ):(<></>)
+            }
         </List>
       </Drawer>
       <IconButton onClick={() => setOpenDrawer(!openDrawer)}>

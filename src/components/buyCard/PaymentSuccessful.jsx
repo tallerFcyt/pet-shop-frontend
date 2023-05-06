@@ -9,6 +9,7 @@ import CREATE_PRODUCT_BUY from "../../service/graphql/mutations/createProductBuy
 import CREATE_SHIPMENT from "../../service/graphql/mutations/createShipment";
 import { PetIconStyles } from "../nav/styles";
 import { useNavigate } from "react-router-dom";
+import { API_URL } from "../../utils/config";
 
 const PaymentSuccessful = ( { open, handleClose, refetch, setBuys , payment_id, userId } ) => {
 
@@ -37,7 +38,7 @@ const PaymentSuccessful = ( { open, handleClose, refetch, setBuys , payment_id, 
         email: user.email,
       }
       
-      await fetch("http://localhost:4000/payment/notification",{
+      await fetch(`${API_URL}/payment/notification`,{
         method: 'POST',
         body: JSON.stringify(data),
         headers: { "Content-Type": "application/json" },
@@ -76,7 +77,7 @@ const PaymentSuccessful = ( { open, handleClose, refetch, setBuys , payment_id, 
       const data = {
         payment_id: payment_id,
       }
-      const result = await fetch("http://localhost:4000/payment/items",{
+      const result = await fetch(`${API_URL}/payment/items`,{
         method: 'POST',
         body: JSON.stringify(data),
         headers: { "Content-Type": "application/json" },
@@ -84,11 +85,6 @@ const PaymentSuccessful = ( { open, handleClose, refetch, setBuys , payment_id, 
       const resolve = await result.json()
       const totalAmount = resolve[0]
       const items = resolve[1]
-      // setDataBuy({
-      //   payment_id: payment_id,
-      //   items: items,
-      //   totalAmount: totalAmount
-      // })
       createBuyUser(totalAmount, items)
 
     } catch (error) {

@@ -70,7 +70,7 @@ const DialogState = ({ open, handleClose, shipment, refetch, setBuys }) => {
           <DialogActions>
             <Button onClick={handleClose}>Cancelar</Button>
             <Button variant="outlined" type="submit">
-              {loading ? (<CircularProgress size={100} sx={{ color: "#FF914D" }} />) : ('Confirmar')}
+              {loading ? (<CircularProgress size={20} color='primary' />) : ('Confirmar')}
             </Button>
           </DialogActions>
         </form>

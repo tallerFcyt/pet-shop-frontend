@@ -5,6 +5,7 @@ import { useMutation } from "@apollo/client";
 import CREATE_SERVICE_PET from "../../service/graphql/mutations/createServicePet";
 import { PetIconStyles } from "../nav/styles";
 import { useNavigate } from "react-router-dom";
+import { API_URL } from "../../utils/config";
 
 const PaymentServiceSuccessful = ({ open, handleClose, payment_id }) => {
 
@@ -21,7 +22,7 @@ const PaymentServiceSuccessful = ({ open, handleClose, payment_id }) => {
         email: user.email,
       }
       
-      await fetch("http://localhost:4000/payment/notification",{
+      await fetch(`${API_URL}/payment/notification`,{
         method: 'POST',
         body: JSON.stringify(data),
         headers: { "Content-Type": "application/json" },
@@ -47,7 +48,7 @@ const PaymentServiceSuccessful = ({ open, handleClose, payment_id }) => {
       const data = {
         payment_id: payment_id,
       }
-      const result = await fetch("http://localhost:4000/payment/items",{
+      const result = await fetch(`${API_URL}/payment/items`,{
         method: 'POST',
         body: JSON.stringify(data),
         headers: { "Content-Type": "application/json" },

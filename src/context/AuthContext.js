@@ -9,7 +9,6 @@ import { auth } from "../firebaseConfig";
 import { useLocalStorage } from "../service/hooks/useLocalStorage";
 import GET_USER from "../service/graphql/querys/getUser";
 import { useLazyQuery } from "@apollo/client";
-import PropTypes from "prop-types";
 import { useContext } from "react";
 
 const AuthContext = createContext();
@@ -33,6 +32,7 @@ export function AuthProvider({ children }) {
     if (user) {
       getUser();
     }
+    // eslint-disable-next-line
   }, [window.localStorage.getItem("user")]);
 
   useEffect(() => {
