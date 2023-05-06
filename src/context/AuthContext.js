@@ -22,14 +22,17 @@ export function AuthProvider({ children }) {
 
   //User es admin para responder
   const getUser = async () => {
-    const { data } = await userQuery({ variables: { getUserId: user.uid } });
-    if (data) {
-      setUserData(data.getUser);
+    if (user !== null) {
+      const { data } = await userQuery({ variables: { getUserId: user.uid } });
+      if (data) {
+        setUserData(data.getUser);
+      }
     }
   };
+  
 
   useEffect(() => {
-    if (user) {
+    if (user !== null) {
       getUser();
     }
     // eslint-disable-next-line
@@ -38,6 +41,7 @@ export function AuthProvider({ children }) {
   useEffect(() => {
     onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
+      console.log(currentUser)
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -49,6 +53,7 @@ export function AuthProvider({ children }) {
 
   const handleGoogleSignIn = async () => {
     const auth = await loginWithGoogle();
+    console.log(auth.uid)
     const {uid} = auth.user;
     const data = await userQuery({ variables: { getUserId: uid } });
     setUserData(data.data.getUser);

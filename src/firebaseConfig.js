@@ -5,13 +5,6 @@ import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage"
 import {v4} from 'uuid'
 import { API_KEY, APP_ID, AUTH_DOMAIN, MEASUREMENT_ID, MESSAGING_SENDER_ID, PROJECT_ID, STORAGE_BUCKET } from "./utils/config";
 
-console.log(API_KEY)
-console.log(APP_ID)
-console.log(AUTH_DOMAIN)
-console.log(MEASUREMENT_ID)
-console.log(MESSAGING_SENDER_ID)
-console.log(PROJECT_ID)
-console.log(STORAGE_BUCKET)
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 

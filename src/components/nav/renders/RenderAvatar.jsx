@@ -4,16 +4,13 @@ import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import AuthContext from "../../../context/AuthContext";
 
-const RenderAvatar = ( {handleValue} ) => {
+const RenderAvatar = ( {handleValue, user} ) => {
   
   //usamos useNavigate para redireccionar el usuario a home una vez cerrado sesión.
   const navigate = useNavigate();
 
   //Estado para menjar el menu.
   const [anchorElUser, setAnchorElUser] = useState(null);
-  
-  //Obtenemos el user desde localstorage.
-  const user = JSON.parse(localStorage.getItem("user"))
 
   //Traemos la funcion handleLogout desde el contexto para cerrar sesión.
   const { handleLogout } = useContext(AuthContext);
