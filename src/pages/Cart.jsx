@@ -122,6 +122,20 @@ const Cart = () => {
           mr: 0,
         }}
       >
+                <Typography
+          variant="h6"
+          sx={{
+            textAlign: "center",
+            fontSize: 25,
+            fontFamily: "monospace",
+            fontWeight: 700,
+            textDecoration: "none",
+            color: "#fff",
+            mb: "1.5rem",
+          }}
+        >
+          Carrito
+        </Typography>
         <Grid container spacing={3}>
             {loading ? (
               <div
