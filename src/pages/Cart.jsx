@@ -80,7 +80,6 @@ const Cart = () => {
       items.push({
         "id": product.product_id,
         "title": product.product.title,
-        "description": product.product.description,
         "quantity": parseInt(product.quantity),
         "picture_url": product.product.image_url,
         "currency_id": "ARS",
