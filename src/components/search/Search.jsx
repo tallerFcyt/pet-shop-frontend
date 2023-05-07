@@ -17,7 +17,7 @@ const SearchNav = ({setProducts, refetch, getAllProduct}) => {
   //Funcion para traer los productos mediante un filtro
   const getAllProductByFilter = async (input) => {
     try {
-      const {data} = await getAllProductFilter({variables:{filter:input[0].toUpperCase() + input.substring(1)}})
+      const {data} = await getAllProductFilter({variables:{filter:input}})
       if (data.getAllProductByFilter){
         await setProducts(data.getAllProductByFilter)
         await refetch()
