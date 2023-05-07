@@ -63,6 +63,7 @@ function FormProduct({ open, handleClose, update, product, setProducts, refetch 
         variables: newProduct,
       });
       handleClose();
+      setLoading(false);
     } else {
       const data = await createProduct({
         variables: newProduct,

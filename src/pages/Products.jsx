@@ -44,13 +44,13 @@ const Products = () => {
 
   return (
     <Container maxWidth="lg" sx={{ mt: "4rem", mb: "4rem" }}>
-      <Box
-        sx={{
-          bgcolor: "#1D222B",
+      <div
+        style={{
+          backgroundColor: "#1D222B",
           minHeight: "100vh",
           padding: "3rem",
           borderRadius: 2,
-          mr: 0,
+          marginRight: 0,
         }}
       >
         <Typography
@@ -145,7 +145,7 @@ const Products = () => {
             <CircularProgress size={100} sx={{ color: "#FF914D" }} />
           )}
         </Grid>
-      </Box>
+      </div>
     </Container>
   );
 };
